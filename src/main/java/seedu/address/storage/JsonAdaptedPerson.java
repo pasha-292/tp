@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 
+
 /**
  * Jackson-friendly version of {@link Person}.
  */
@@ -26,16 +27,15 @@ class JsonAdaptedPerson {
     private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
     private final String remark;
-
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-                             @JsonProperty("email") String email, @JsonProperty("address") String address,
-                             @JsonProperty("remark") String remark,
-                             @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
-                             @JsonProperty("done") String done) {
+            @JsonProperty("email") String email, @JsonProperty("address") String address,
+            @JsonProperty("remark") String remark,
+            @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
+            @JsonProperty("done") String done) {
 
         this.name = name;
         this.phone = phone;
