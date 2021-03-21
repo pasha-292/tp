@@ -21,6 +21,7 @@ public class Customer {
     private final Email email;
     private final Remark remark;
     private final Done done;
+    private final Date date;
 
     // Data fields
     private final Address address;
@@ -29,7 +30,8 @@ public class Customer {
     /**
      * Every field must be present and not null.
      */
-    public Customer(Name name, Phone phone, Email email, Address address, Remark remark, Set<Tag> tags, Done done) {
+    public Customer(Name name, Phone phone, Email email, Address address, Remark remark,
+                    Set<Tag> tags, Done done, Date date) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
@@ -38,6 +40,7 @@ public class Customer {
         this.remark = remark;
         this.tags.addAll(tags);
         this.done = done;
+        this.date = date;
     }
 
     public Name getName() {
