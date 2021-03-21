@@ -44,6 +44,8 @@ public class CustomerCard extends UiPart<Region> {
     private Label done;
     @FXML
     private Label remark;
+    @FXML
+    private Label date;
 
     /**
      * Creates a {@code CustomerCode} with the given {@code Customer} and index to display.
@@ -55,6 +57,7 @@ public class CustomerCard extends UiPart<Region> {
         name.setText(customer.getName().fullName);
         phone.setText(customer.getPhone().value);
         address.setText(customer.getAddress().value);
+        date.setText(customer.getDate().value);
         email.setText(customer.getEmail().value);
         remark.setText(customer.getRemark().value);
         done.setText(customer.getDone().value);
