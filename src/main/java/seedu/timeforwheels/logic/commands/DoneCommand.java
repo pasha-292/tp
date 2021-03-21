@@ -26,7 +26,7 @@ public class DoneCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 ";
 
     public static final String MESSAGE_DONE_CUSTOMER_SUCCESS =
-        "The following Delivery Order has been checkmarked : %1$s";
+            "The following Delivery Order has been checkmarked : %1$s";
     public static final String CHECKMARK = "[✓]";
     private final Index targetIndex;
     private final Done done;
@@ -54,12 +54,14 @@ public class DoneCommand extends Command {
         if (customerToEdit.getDone().toString().equals("")) {
             editedCustomer = new Customer(customerToEdit.getName(), customerToEdit.getPhone(),
                     customerToEdit.getEmail(), customerToEdit.getAddress(),
-                    customerToEdit.getRemark(), customerToEdit.getTags(), done);
+                    customerToEdit.getRemark(), customerToEdit.getTags(), done,
+                    customerToEdit.getDate());
 
         } else {
             editedCustomer = new Customer(customerToEdit.getName(), customerToEdit.getPhone(),
                     customerToEdit.getEmail(), customerToEdit.getAddress(),
-                    customerToEdit.getRemark(), customerToEdit.getTags(), new Done(""));
+                    customerToEdit.getRemark(), customerToEdit.getTags(), new Done(""),
+                    customerToEdit.getDate());
 
         }
 

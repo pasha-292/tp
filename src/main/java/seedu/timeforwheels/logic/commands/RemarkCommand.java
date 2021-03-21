@@ -13,7 +13,6 @@ import seedu.timeforwheels.model.customer.Customer;
 import seedu.timeforwheels.model.customer.Remark;
 
 
-
 public class RemarkCommand extends Command {
 
     public static final String COMMAND_WORD = "remark";
@@ -35,7 +34,7 @@ public class RemarkCommand extends Command {
 
 
     /**
-     * @param index of the customer in the filtered customer list to edit the remark
+     * @param index  of the customer in the filtered customer list to edit the remark
      * @param remark of the customer to be updated to
      */
     public RemarkCommand(Index index, Remark remark) {
@@ -43,7 +42,6 @@ public class RemarkCommand extends Command {
         this.index = index;
         this.remark = remark;
     }
-
 
 
     @Override
@@ -74,7 +72,7 @@ public class RemarkCommand extends Command {
         Customer customerToEdit = lastShownList.get(index.getZeroBased());
         Customer editedCustomer = new Customer(customerToEdit.getName(), customerToEdit.getPhone(),
                 customerToEdit.getEmail(), customerToEdit.getAddress(), remark,
-                customerToEdit.getTags(), customerToEdit.getDone());
+                customerToEdit.getTags(), customerToEdit.getDone(), customerToEdit.getDate());
         model.setCustomer(customerToEdit, editedCustomer);
         model.updateFilteredCustomerList(PREDICATE_SHOW_ALL_CUSTOMERS);
         return new CommandResult(generateSuccessMessage(editedCustomer));

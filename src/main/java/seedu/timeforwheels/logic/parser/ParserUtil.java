@@ -10,6 +10,7 @@ import seedu.timeforwheels.commons.core.index.Index;
 import seedu.timeforwheels.commons.util.StringUtil;
 import seedu.timeforwheels.logic.parser.exceptions.ParseException;
 import seedu.timeforwheels.model.customer.Address;
+import seedu.timeforwheels.model.customer.Date;
 import seedu.timeforwheels.model.customer.Email;
 import seedu.timeforwheels.model.customer.Name;
 import seedu.timeforwheels.model.customer.Phone;
@@ -25,6 +26,7 @@ public class ParserUtil {
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
+     *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
@@ -93,6 +95,21 @@ public class ParserUtil {
             throw new ParseException(Email.MESSAGE_CONSTRAINTS);
         }
         return new Email(trimmedEmail);
+    }
+
+    /**
+     * Parses a {@code String date} into an {@code Date}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code date} is invalid.
+     */
+    public static Date parseDate(String date) throws ParseException {
+        requireNonNull(date);
+        String trimmedDate = date.trim();
+        if (!Date.isValidDate(trimmedDate)) {
+            throw new ParseException(Date.MESSAGE_CONSTRAINTS);
+        }
+        return new Date(trimmedDate);
     }
 
     /**

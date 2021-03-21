@@ -67,6 +67,10 @@ public class Customer {
         return done;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
@@ -107,13 +111,14 @@ public class Customer {
                 && otherCustomer.getPhone().equals(getPhone())
                 && otherCustomer.getEmail().equals(getEmail())
                 && otherCustomer.getAddress().equals(getAddress())
-                && otherCustomer.getTags().equals(getTags());
+                && otherCustomer.getTags().equals(getTags())
+                && otherCustomer.getDate().equals(getDate());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags, done);
+        return Objects.hash(name, phone, email, address, tags, done, date);
     }
 
     @Override
@@ -126,6 +131,8 @@ public class Customer {
                 .append(getEmail())
                 .append("; Address: ")
                 .append(getAddress())
+                .append("; Date: ")
+                .append(getDate())
                 .append(getDone());
 
         Set<Tag> tags = getTags();
