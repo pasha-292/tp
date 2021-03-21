@@ -5,6 +5,7 @@ import java.util.Set;
 
 import seedu.timeforwheels.model.customer.Address;
 import seedu.timeforwheels.model.customer.Customer;
+import seedu.timeforwheels.model.customer.Date;
 import seedu.timeforwheels.model.customer.Done;
 import seedu.timeforwheels.model.customer.Email;
 import seedu.timeforwheels.model.customer.Name;
@@ -24,6 +25,7 @@ public class CustomerBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_REMARK = "Busy";
     public static final String DEFAULT_DONE = "[✓]";
+    public static final String DEFAULT_DATE = "2021-10-10";
 
     private Name name;
     private Phone phone;
@@ -32,6 +34,7 @@ public class CustomerBuilder {
     private Set<Tag> tags;
     private Remark remark;
     private Done done;
+    private Date date;
 
     /**
      * Creates a {@code CustomerBuilder} with the default details.
@@ -44,6 +47,7 @@ public class CustomerBuilder {
         tags = new HashSet<>();
         remark = new Remark(DEFAULT_REMARK);
         done = new Done(DEFAULT_DONE);
+        date = new Date(DEFAULT_DATE);
     }
 
     /**
@@ -57,6 +61,7 @@ public class CustomerBuilder {
         remark = customerToCopy.getRemark();
         tags = new HashSet<>(customerToCopy.getTags());
         done = customerToCopy.getDone();
+        date = customerToCopy.getDate();
     }
 
     /**
@@ -115,9 +120,17 @@ public class CustomerBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Date} of the {@code Customer} that we are building.
+     */
+    public CustomerBuilder withDate(String date) {
+        this.date = new Date(date);
+        return this;
+    }
+
 
     public Customer build() {
-        return new Customer(name, phone, email, address, remark, tags, done);
+        return new Customer(name, phone, email, address, remark, tags, done, date);
     }
 
 }
